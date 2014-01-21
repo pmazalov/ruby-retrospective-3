@@ -17,13 +17,12 @@ class TodoList
   end
 
   def filter(filter)
-    tasks = @tasks.select { |task| filter.met_by? task }
-    TodoList.new(tasks)
+    TodoList.new tasks.select { |task| filter.met_by? task }
   end
 
   def adjoin(todo_list)
-    adjoined_tasks = (tasks + todo_list.tasks).uniq
-    TodoList.new(adjoined_tasks)
+    TodoList.new((tasks + todo_list.tasks).uniq)
+    
   end
 
   def tasks_todo
