@@ -19,12 +19,7 @@ class Integer
   end
 
   def digits
-    number = abs
-    if number > 10
-      (number / 10).digits + [number % 10]
-    else
-      [number]
-    end
+    abs.to_s.chars.map(&:to_i)
   end
 
   def harmonic
