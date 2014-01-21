@@ -26,15 +26,15 @@ class TodoList
   end
 
   def tasks_todo
-    map { |task|  task.status == :todo }.count(true)
+    count { |task| task.status == :todo }
   end
 
   def tasks_in_progress
-     map { |task|  task.status == :current }.count(true)
+    count { |task| task.status == :current }
   end
 
   def tasks_completed
-    map { |task|  task.status == :done }.count(true)
+    count { |task| task.status == :done }
   end
 
   def completed?
