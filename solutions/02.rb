@@ -82,9 +82,9 @@ class Task
   attr_reader :status, :description, :priority, :tags
 
   def initialize(task_fields)
-    @status = task_fields[0].strip.downcase.to_sym
+    @status      = task_fields[0].strip.downcase.to_sym
     @description = task_fields[1].strip.to_s
-    @priority = task_fields[2].strip.downcase.to_sym
-    @tags = task_fields[3].split(", ") if task_fields[3]
+    @priority    = task_fields[2].strip.downcase.to_sym
+    @tags        = task_fields[3].split(", ") if task_fields[3]
   end
 end
