@@ -10,14 +10,6 @@ class Integer
     [divisor] + (abs / divisor).prime_factors
   end
 
-  def divisor_multiplicity(divisor)
-    if self % divisor == 0
-      1 + (self / divisor).divisor_multiplicity(divisor)
-    else
-      0
-    end
-  end
-
   def digits
     abs.to_s.chars.map(&:to_i)
   end
