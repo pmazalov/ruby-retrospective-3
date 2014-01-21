@@ -1,10 +1,7 @@
 class Integer
   def prime?
-    if self < 0 or self == 1
-      return false
-    else
-      (2..self-1).all? { |n| self % n != 0 }
-    end
+    return false if self <= 1
+    2.upto(pred).all? { |divisor| remainder(divisor).nonzero? }
   end
 
   def prime_factors
