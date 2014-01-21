@@ -22,9 +22,7 @@ end
 
 class Array
   def average
-    sum = 0
-    each { |n| sum += n}
-    sum / self.count.to_f
+    reduce(:+) / size.to_f
   end
 
   def frequencies
