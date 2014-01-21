@@ -65,16 +65,18 @@ class Criteria
     Criteria.new { |task| not met_by?(task) }
   end
 
-  def self.status(status)
-    Criteria.new{ |task| task.status == status }
-  end
+  class << self
+    def status(status)
+      Criteria.new{ |task| task.status == status }
+    end
 
-  def self.priority(priority)
-    Criteria.new{ |task| task.priority == priority }
-  end
+    def priority(priority)
+      Criteria.new{ |task| task.priority == priority }
+    end
 
-  def self.tags(tags)
-    Criteria.new{ |task| (tags & task.tags.to_a).eql?(tags)  }
+    def tags(tags)
+      Criteria.new{ |task| (tags & task.tags.to_a).eql?(tags)  }
+    end
   end
 end
 
