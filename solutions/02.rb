@@ -44,13 +44,13 @@ end
 
 class Criteria
 
-  attr_reader :matcher
+  attr_reader :condition
   def initialize(&block)
-    @matcher = block
+    @condition = block
   end
 
   def met_by?(task)
-    @matcher.call task
+    @condition.call task
   end
 
   def &(other)
