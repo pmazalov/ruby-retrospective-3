@@ -37,10 +37,10 @@ class Array
   end
 
   def combine_with(other)
-    if size < other.size
-      zip(other).flatten.compact + other.slice(size, other.size)
+    if empty?
+      other
     else
-      zip(other).flatten.compact
+      [first] + other.combine_with(self[1..-1])
     end
   end
 end
