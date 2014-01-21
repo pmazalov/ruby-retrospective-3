@@ -5,10 +5,9 @@ class Integer
   end
 
   def prime_factors
-    prime_divisors = (2..abs).select { |n| n.prime? and self % n == 0 }
-    multiplicity = prime_divisors.map { |n| abs.divisor_multiplicity(n) }
-    prime_divisors.zip(multiplicity).map { |n, count| [n] * count }.flatten
-
+    return [] if abs < 2
+    divisor = 2.upto(abs).find { |divisor| abs.remainder(divisor).zero? }
+    [divisor] + (abs / divisor).prime_factors
   end
 
   def divisor_multiplicity(divisor)
