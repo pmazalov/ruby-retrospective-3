@@ -54,11 +54,11 @@ class Criteria
   end
 
   def &(other)
-    Criteria.new { |task| self.met_by?(task) and other.met_by?(task) }
+    Criteria.new { |task| met_by?(task) and other.met_by?(task) }
   end
 
   def |(other)
-    Criteria.new { |task| self.met_by?(task) or other.met_by?(task) }
+    Criteria.new { |task| met_by?(task) or other.met_by?(task) }
   end
 
   def !
