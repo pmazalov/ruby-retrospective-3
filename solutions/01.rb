@@ -33,13 +33,7 @@ class Array
   end
 
   def drop_every(n)
-    result = []
-    (1..size).each do |i|
-      if i % n != 0
-        result << self[i - 1]
-      end
-    end
-    result
+    each_slice(n).map { |slice| slice.take(n - 1) }.flatten
   end
 
   def combine_with(other)
