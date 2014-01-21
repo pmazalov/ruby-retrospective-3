@@ -28,7 +28,7 @@ class Integer
   end
 
   def harmonic
-    (1..self).map { |n| Rational(1, n) }.reduce(:+)
+    1.upto(self).map { |number| Rational(1, number) }.reduce(:+)
   end
 end
 
